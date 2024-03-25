@@ -1,0 +1,22 @@
+{
+  "env": {
+    "es2021": true,
+    "browser": true,
+    "node": true,
+    "webextensions": true
+  },
+  "root": true,
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["prettier", "editorconfig"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:editorconfig/noconflict",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-undef": "warn"
+  }
+}

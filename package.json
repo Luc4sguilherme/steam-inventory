@@ -1,0 +1,119 @@
+{
+  "name": "@luc4sguilherme/steam-inventory",
+  "version": "1.0.0",
+  "description": "Get the user steam inventory.",
+  "license": "MIT",
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "npm run lint -- --fix",
+    "semantic-release": "semantic-release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luc4sguilherme/steam-inventory.git"
+  },
+  "author": "Luc4sguilherme",
+  "bugs": {
+    "url": "https://github.com/Luc4sguilherme/steam-inventory/issues"
+  },
+  "homepage": "https://github.com/Luc4sguilherme/steam-inventory#readme",
+  "files": [
+    "src",
+    "package.json",
+    "package-lock.json",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "request": "^2.88.2",
+    "steamid": "^2.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/github": "^9.2.5",
+    "@semantic-release/npm": "^11.0.2",
+    "@semantic-release/release-notes-generator": "^12.1.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
+    "semantic-release": "^22.0.12",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-editorconfig": "^4.0.3",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.5.0",
+    "eslint-plugin-prettier": "^5.1.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^3.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "docs",
+              "release": "patch"
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "package-lock.json"
+          ]
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "./scripts/bundle.sh"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "archive.zip",
+              "label": "${nextRelease.gitTag}.zip",
+              "name": "steam-inventory-${nextRelease.gitTag}.zip"
+            }
+          ]
+        }
+      ]
+    ]
+  }
+}
