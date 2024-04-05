@@ -221,6 +221,11 @@ SteamInventory.prototype.getInventoryItemsWithDescriptions = function (
         }
 
         if (!body || !body.response.assets || !body.response.descriptions) {
+          if (appID == 730) {
+            callback(null, [], [], 0);
+            return;
+          }
+
           if (body) {
             callback(
               new Error(body.error || body.Error || 'Malformed response'),
