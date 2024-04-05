@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.0.0...v1.0.1) (2024-04-05)
+
+
+### Bug Fixes
+
+* fix cs2 inventory handling ([d2f620e](https://github.com/Luc4sguilherme/steam-inventory/commit/d2f620e3041bb3867beb7a315cd5f79df011a458))
+
 # 1.0.0 (2024-03-25)
 
 
