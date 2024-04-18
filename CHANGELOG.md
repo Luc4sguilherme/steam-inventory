@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.0.2...v1.1.0) (2024-04-18)
+
+
+### Features
+
+* increase the quantity of items per request to 5k ([49e8034](https://github.com/Luc4sguilherme/steam-inventory/commit/49e80343ff5ccaaa25a9f9573e908972e56d455a))
+
 ## [1.0.2](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.0.1...v1.0.2) (2024-04-07)
 
 
