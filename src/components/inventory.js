@@ -50,7 +50,7 @@ SteamInventory.prototype.getUserInventoryContents = function (
         },
         qs: {
           l: language,
-          count: 2000,
+          count: 5000,
           start_assetid: start,
         },
         json: true,
@@ -340,7 +340,7 @@ SteamInventory.prototype.getUserInventorySteamApis = function (
         qs: {
           api_key: apiKey,
           l: language,
-          count: 2000,
+          count: 5000,
           start_assetid: start,
         },
         json: true,
