@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.1.0...v1.1.1) (2024-04-18)
+
+
+### Bug Fixes
+
+* fix cookie issue caused by differing tokens across different Steam domains ([3836c16](https://github.com/Luc4sguilherme/steam-inventory/commit/3836c1696ee4edb2e25c547374f69f47bf2194af))
+* fix steamID property not being set when using cookies that have a domain attribute ([8e4420c](https://github.com/Luc4sguilherme/steam-inventory/commit/8e4420c78e22d273f1821064aac2d45c69abaea7))
+
 # [1.1.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.0.2...v1.1.0) (2024-04-18)
 
 
