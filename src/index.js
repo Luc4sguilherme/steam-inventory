@@ -53,9 +53,9 @@ SteamInventory.prototype._setCookie = function (cookie, secure) {
 
 SteamInventory.prototype.setCookies = function (cookies) {
   cookies.forEach(cookie => {
-    var cookieName = cookie.match(/(.+)=/)[1];
+    var cookieName = cookie.trim().split('=')[0];
     if (cookieName == 'steamLogin' || cookieName == 'steamLoginSecure') {
-      this.steamID = new SteamID(cookie.match(/=(\d+)/)[1]);
+      this.steamID = new SteamID(cookie.match(/steamLogin(Secure)?=(\d+)/)[2]);
     }
 
     this._setCookie(
