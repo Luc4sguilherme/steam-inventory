@@ -1,6 +1,7 @@
 const SteamID = require('steamid');
 const CEconItem = require('../classes/CEconItem.js');
 const SteamInventory = require('../index.js');
+const utils = require('./utils.js');
 
 /**
  * Get the contents of a user's inventory context.
@@ -494,7 +495,7 @@ SteamInventory.prototype.getUserInventorySteamSupply = function (
         },
         json: true,
       },
-      function (err, response, body) {
+      async function (err, response, body) {
         if (err) {
           if (err.message == 'HTTP error 500') {
             if (retries > 0) {
@@ -527,8 +528,19 @@ SteamInventory.prototype.getUserInventorySteamSupply = function (
           return;
         }
 
-        if (typeof response.body != 'object' || response.body.fake_redirect) {
+        if (typeof response.body != 'object') {
           if (retries > 0) {
+            get(inventory, currency, start, retries - 1);
+            return;
+          }
+        }
+
+        if (response.body && 'fake_redirect' in response.body) {
+          if (retries > 0) {
+            if (response.body.fake_redirect == 0) {
+              await utils.delay(2500 * (6 - retries));
+            }
+
             get(inventory, currency, start, retries - 1);
             return;
           }
