@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.1.1...v1.2.0) (2024-04-23)
+
+
+### Features
+
+* add delay for fake redirects in steam.supply API ([0755d47](https://github.com/Luc4sguilherme/steam-inventory/commit/0755d4725b6d13f1cdaf18361efb9498949f5a69))
+
 ## [1.1.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.1.0...v1.1.1) (2024-04-18)
 
 
