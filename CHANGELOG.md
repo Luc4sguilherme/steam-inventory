@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.2.0...v1.3.0) (2024-05-14)
+
+
+### Features
+
+* add support for access token ([c3e0c28](https://github.com/Luc4sguilherme/steam-inventory/commit/c3e0c28110c8504e7de13ba3ab2c6bd06f9d22d2))
+
+
+### Reverts
+
+* Revert "fix: fix http error 401 handling" ([948d545](https://github.com/Luc4sguilherme/steam-inventory/commit/948d545ba42a92dc883fa8c4bb6f56e0da66f350))
+
 # [1.2.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.1.1...v1.2.0) (2024-04-23)
 
 
