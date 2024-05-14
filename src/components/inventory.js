@@ -58,11 +58,7 @@ SteamInventory.prototype.getUserInventoryContents = function (
       },
       function (err, response, body) {
         if (err) {
-          if (
-            (err.message == 'HTTP error 401' ||
-              err.message == 'HTTP error 403') &&
-            body === null
-          ) {
+          if (err.message == 'HTTP error 403' && body === null) {
             if (
               self.steamID &&
               userID.getSteamID64() == self.steamID.getSteamID64()
@@ -360,10 +356,7 @@ SteamInventory.prototype.getUserInventorySteamApis = function (
             }
           }
 
-          if (
-            err.message == 'HTTP error 401' ||
-            err.message == 'HTTP error 403'
-          ) {
+          if (err.message == 'HTTP error 403') {
             callback(new Error('This profile is private.'));
             return;
           }
@@ -504,10 +497,7 @@ SteamInventory.prototype.getUserInventorySteamSupply = function (
             }
           }
 
-          if (
-            err.message == 'HTTP error 401' ||
-            err.message == 'HTTP error 403'
-          ) {
+          if (err.message == 'HTTP error 403') {
             if (response.body && response.body.includes('Invalid API key')) {
               callback(new Error('Invalid API key'));
               return;
