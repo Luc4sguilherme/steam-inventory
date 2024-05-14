@@ -14,6 +14,7 @@ function SteamInventory(options) {
   this.SteamID = SteamID;
   this._jar = Request.jar();
   this._httpRequestID = 0;
+  this.accessToken = null;
 
   var defaults = {
     jar: this._jar,
@@ -66,6 +67,17 @@ SteamInventory.prototype.setCookies = function (cookies) {
       Request.cookie(cookie),
       !!(cookieName.match(/^steamMachineAuth/) || cookieName.match(/Secure$/)),
     );
+
+    if (cookieName == 'steamLoginSecure') {
+      var cookieValueMatch = cookie.match(/steamLoginSecure=([^;]+)/);
+
+      if (cookieValueMatch) {
+        var cookieValue = decodeURIComponent(cookieValueMatch[1].trim());
+        var accessToken = cookieValue.split('||')[1];
+
+        this.accessToken = accessToken;
+      }
+    }
   });
 };
 

@@ -191,18 +191,29 @@ SteamInventory.prototype.getInventoryItemsWithDescriptions = function (
   get([], []);
 
   function get(inventory, currency, start) {
+    var qs = {
+      key: apiKey,
+      appid: appID,
+      contextid: contextID,
+      steamid: userID.getSteamID64(),
+      language: language,
+      start_assetid: start,
+      get_descriptions: true,
+    };
+
+    if (
+      userID.getSteamID64() == self.steamID.getSteamID64() &&
+      self.accessToken
+    ) {
+      qs.access_token = self.accessToken;
+
+      delete qs.key;
+    }
+
     self.httpRequest(
       {
         uri: 'https://api.steampowered.com/IEconService/GetInventoryItemsWithDescriptions/v1',
-        qs: {
-          key: apiKey,
-          appid: appID,
-          contextid: contextID,
-          steamid: userID.getSteamID64(),
-          language: language,
-          start_assetid: start,
-          get_descriptions: true,
-        },
+        qs,
         json: true,
       },
       function (err, response, body) {
