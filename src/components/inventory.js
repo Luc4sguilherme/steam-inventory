@@ -70,6 +70,11 @@ SteamInventory.prototype.getUserInventoryContents = function (
             return;
           }
 
+          if (err.message == 'HTTP error 401') {
+            callback(new Error('Error loading inventory'));
+            return;
+          }
+
           if (err.message == 'HTTP error 500' && body && body.error) {
             err = new Error(body.error);
 
@@ -367,6 +372,11 @@ SteamInventory.prototype.getUserInventorySteamApis = function (
             }
           }
 
+          if (err.message == 'HTTP error 401') {
+            callback(new Error('Error loading inventory'));
+            return;
+          }
+
           if (err.message == 'HTTP error 403') {
             callback(new Error('This profile is private.'));
             return;
@@ -508,12 +518,19 @@ SteamInventory.prototype.getUserInventorySteamSupply = function (
             }
           }
 
-          if (err.message == 'HTTP error 403') {
+          if (err.message == 'HTTP error 401') {
             if (response.body && response.body.includes('Invalid API key')) {
               callback(new Error('Invalid API key'));
               return;
             }
 
+            if (response.body && response.body.includes('Inventory Hidden')) {
+              callback(new Error('Error loading inventory'));
+              return;
+            }
+          }
+
+          if (err.message == 'HTTP error 403') {
             if (response.body && response.body.includes('Inventory Private')) {
               callback(new Error('This profile is private.'));
               return;
