@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.3.0...v1.3.1) (2024-05-15)
+
+
+### Bug Fixes
+
+* fix http error 401 handling ([c81bf68](https://github.com/Luc4sguilherme/steam-inventory/commit/c81bf6814889320ec4ffad00f1eb7adf29b044bf))
+
 # [1.3.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.2.0...v1.3.0) (2024-05-14)
 
 
