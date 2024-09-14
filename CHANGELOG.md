@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.3.1...v1.3.2) (2024-09-14)
+
+
+### Bug Fixes
+
+* add handling for undefined response error ([cbfa4d3](https://github.com/Luc4sguilherme/steam-inventory/commit/cbfa4d3f9f647db7aa5bc1fff3cb0b347664e39c))
+
 ## [1.3.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.3.0...v1.3.1) (2024-05-15)
 
 
