@@ -223,7 +223,7 @@ SteamInventory.prototype.getInventoryItemsWithDescriptions = function (
       },
       function (err, response, body) {
         if (err) {
-          if (response.statusCode == 403) {
+          if (response && response.statusCode == 403) {
             callback(new Error('Invalid API key'));
             return;
           }
