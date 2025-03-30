@@ -96,6 +96,11 @@ SteamInventory.prototype.getUserInventoryContents = function (
           return;
         }
 
+        if (body && body.success && !body.assets && appID == 730) {
+          callback(null, [], [], body.total_inventory_count);
+          return;
+        }
+
         if (!body || !body.success || !body.assets || !body.descriptions) {
           if (body) {
             callback(
@@ -237,12 +242,12 @@ SteamInventory.prototype.getInventoryItemsWithDescriptions = function (
           return;
         }
 
-        if (!body || !body.response.assets || !body.response.descriptions) {
-          if (appID == 730) {
-            callback(null, [], [], 0);
-            return;
-          }
+        if (body && !body.response.assets && appID == 730) {
+          callback(null, [], [], 0);
+          return;
+        }
 
+        if (!body || !body.response.assets || !body.response.descriptions) {
           if (body) {
             callback(
               new Error(body.error || body.Error || 'Malformed response'),
@@ -393,6 +398,11 @@ SteamInventory.prototype.getUserInventorySteamApis = function (
 
         if (body && body.success && body.total_inventory_count === 0) {
           callback(null, [], [], 0);
+          return;
+        }
+
+        if (body && body.success && !body.assets && appID == 730) {
+          callback(null, [], [], body.total_inventory_count);
           return;
         }
 
@@ -566,6 +576,11 @@ SteamInventory.prototype.getUserInventorySteamSupply = function (
 
         if (body && body.success && body.total_inventory_count === 0) {
           callback(null, [], [], 0);
+          return;
+        }
+
+        if (body && body.success && !body.assets && appID == 730) {
+          callback(null, [], [], body.total_inventory_count);
           return;
         }
 
