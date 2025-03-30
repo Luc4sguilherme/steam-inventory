@@ -7,7 +7,7 @@
   "module": "src/index.js",
   "types": "index.d.ts",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint src/**/*.js",
     "lint:fix": "npm run lint -- --fix",
     "semantic-release": "semantic-release"
