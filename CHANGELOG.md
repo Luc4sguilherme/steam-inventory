@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.3.2...v1.4.0) (2025-03-30)
+
+
+### Bug Fixes
+
+* fix receiving Malformed response error when fetching a CS2 inventory that has no visible items ([a7a0f5f](https://github.com/Luc4sguilherme/steam-inventory/commit/a7a0f5fb01f98ebdf282c992188c800bb2fa025d))
+
+
+### Features
+
+* add origin header to all non-GET requests ([efd9680](https://github.com/Luc4sguilherme/steam-inventory/commit/efd9680239c74db682d4392a4b0eb3dc65282b5b))
+
 ## [1.3.2](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.3.1...v1.3.2) (2024-09-14)
 
 
