@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.5.0...v1.5.1) (2025-05-13)
+
+
+### Bug Fixes
+
+* fix cache_expiration restore for CS2 Items ([21adafd](https://github.com/Luc4sguilherme/steam-inventory/commit/21adafd4ddb3f1b523358c78323c6d0f3d0c8987))
+
 # [1.5.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.4.0...v1.5.0) (2025-05-13)
 
 
