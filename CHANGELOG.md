@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.4.0...v1.5.0) (2025-05-13)
+
+
+### Features
+
+* add support for expressload ([77519ec](https://github.com/Luc4sguilherme/steam-inventory/commit/77519ec8a9cc6a1c8eeb3a976b38eb8e32bc2dd6))
+
 # [1.4.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.3.2...v1.4.0) (2025-03-30)
 
 
