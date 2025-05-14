@@ -27,7 +27,7 @@ SteamInventory.prototype.httpRequest = function (
   if ((options.method || 'GET').toUpperCase() != 'GET') {
     options.headers = options.headers || {};
     if (!options.headers.origin) {
-      var parsedUrl = URL.parse(options.url);
+      var parsedUrl = new URL(options.url);
       options.headers.origin = parsedUrl.protocol + '//' + parsedUrl.host;
     }
   }
