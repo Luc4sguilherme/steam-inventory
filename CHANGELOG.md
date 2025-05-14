@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.5.1...v1.5.2) (2025-05-14)
+
+
+### Bug Fixes
+
+* fix package URL ([f79fb43](https://github.com/Luc4sguilherme/steam-inventory/commit/f79fb437cab5768e019880db2aef5559222940d8))
+
 ## [1.5.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.5.0...v1.5.1) (2025-05-13)
 
 
