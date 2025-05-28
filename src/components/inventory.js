@@ -51,7 +51,7 @@ SteamInventory.prototype.getUserInventoryContents = function (
         },
         qs: {
           l: language,
-          count: 5000,
+          count: 1000,
           start_assetid: start,
         },
         json: true,
@@ -358,7 +358,7 @@ SteamInventory.prototype.getUserInventorySteamApis = function (
         qs: {
           api_key: apiKey,
           l: language,
-          count: 5000,
+          count: 1000,
           start_assetid: start,
         },
         json: true,
@@ -514,7 +514,7 @@ SteamInventory.prototype.getUserInventorySteamSupply = function (
           steamid: userID.getSteamID64(),
           appid: appID,
           contextid: contextID,
-          count: 5000,
+          count: 1000,
           start_assetid: start,
         },
         json: true,
@@ -693,7 +693,7 @@ SteamInventory.prototype.getUserInventoryExpressLoad = function (
         },
         qs: {
           l: language,
-          count: 5000,
+          count: 1000,
           start_assetid: start,
         },
         json: true,
