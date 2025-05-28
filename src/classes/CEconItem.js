@@ -26,7 +26,10 @@ function CEconItem(item, description, contextID) {
     }
 
     for (thing in description) {
-      if (Object.prototype.hasOwnProperty.call(description, thing)) {
+      if (
+        Object.prototype.hasOwnProperty.call(description, thing) &&
+        !Object.prototype.hasOwnProperty.call(this, thing)
+      ) {
         this[thing] = description[thing];
       }
     }
