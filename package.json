@@ -1,6 +1,6 @@
 {
   "name": "@luc4sguilherme/steam-inventory",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Get the user steam inventory.",
   "license": "MIT",
   "main": "src/index.js",
