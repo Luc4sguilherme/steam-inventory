@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.5.2...v1.5.3) (2025-05-28)
+
+
+### Bug Fixes
+
+* fix corrupted Steam data possibly overwriting inventory item assetids ([34d4a24](https://github.com/Luc4sguilherme/steam-inventory/commit/34d4a24d1325c826b3d9009240a99939dcfc82ba))
+
 ## [1.5.2](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.5.1...v1.5.2) (2025-05-14)
 
 
