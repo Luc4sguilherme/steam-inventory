@@ -384,5 +384,43 @@ declare module "@luc4sguilherme/steam-inventory" {
       tradableOnly: boolean,
       callback: (err: Error | null, inventory: CEconItem[], currencies: CEconItem[]) => void
     ): any;
+
+    /**
+     * Get the contents of a user's inventory context.
+     * @param apiKey - The SteamBotInfo apikey
+     * @param userID - The user's SteamID as a SteamID object or a string which can parse into one
+     * @param appID - The Steam application ID of the game for which you want an inventory
+     * @param contextID - The ID of the "context" within the game you want to retrieve
+     * @param tradableOnly - true to get only tradable items and currencies
+     * @param language - The language of item descriptions to return. Omit for default (which may either be English or your account's chosen language)
+     * @param callback
+     */
+    getUserInventorySteamBotInfo(
+      apiKey: string,
+      userID: userid,
+      appID: appid,
+      contextID: contextid,
+      tradableOnly: boolean,
+      language: string,
+      callback: (err: Error | null, inventory: CEconItem[], currencies: CEconItem[]) => void
+    ): any;
+
+    /**
+     * Get the contents of a user's inventory context.
+     * @param apiKey - The SteamBotInfo apikey
+     * @param userID - The user's SteamID as a SteamID object or a string which can parse into one
+     * @param appID - The Steam application ID of the game for which you want an inventory
+     * @param contextID - The ID of the "context" within the game you want to retrieve
+     * @param tradableOnly - true to get only tradable items and currencies
+     * @param callback
+     */
+    getUserInventorySteamBotInfo(
+      apiKey: string,
+      userID: userid,
+      appID: appid,
+      contextID: contextid,
+      tradableOnly: boolean,
+      callback: (err: Error | null, inventory: CEconItem[], currencies: CEconItem[]) => void
+    ): any;
   }
 }
