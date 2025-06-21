@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.5.5...v1.6.0) (2025-06-21)
+
+
+### Features
+
+* add support for steambot.info ([892f52d](https://github.com/Luc4sguilherme/steam-inventory/commit/892f52d311de5259dbf36c0d1b5ee99b881c61e9))
+
 ## [1.5.5](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.5.4...v1.5.5) (2025-05-29)
 
 
