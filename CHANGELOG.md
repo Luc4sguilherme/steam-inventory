@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.6.1...v1.7.0) (2026-07-10)
+
+
+### Features
+
+* add default headers ([745dadd](https://github.com/Luc4sguilherme/steam-inventory/commit/745dadd9fa0affa8aedfce4bb602a1ddf5983849))
+
 ## [1.6.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.6.0...v1.6.1) (2026-07-10)
 
 
