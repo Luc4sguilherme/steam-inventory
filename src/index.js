@@ -2,7 +2,7 @@ const Request = require('request');
 const SteamID = require('steamid');
 
 const USER_AGENT =
-  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36';
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0';
 
 require('util').inherits(SteamInventory, require('events').EventEmitter);
 
@@ -22,6 +22,20 @@ function SteamInventory(options) {
     gzip: true,
     headers: {
       'User-Agent': options.userAgent || USER_AGENT,
+      'Accept-Encoding': 'gzip, deflate, br',
+      accept: '*/*',
+      'accept-language': 'en-US,en;q=0.9',
+      'sec-ch-ua':
+        '"Not;A=Brand";v="8", "Chromium";v="150", "Microsoft Edge";v="150"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"Windows"',
+      'sec-ch-viewport-height': '914',
+      'sec-ch-viewport-width': '791',
+      'sec-fetch-dest': 'document',
+      'sec-fetch-mode': 'navigate',
+      'sec-fetch-site': 'same-origin',
+      'sec-fetch-user': '?1',
+      'upgrade-insecure-requests': '1',
     },
   };
 
