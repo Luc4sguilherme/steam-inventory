@@ -689,7 +689,7 @@ SteamInventory.prototype.getUserInventoryExpressLoad = function (
         uri: `https://api.express-load.com/inventory/${userID.getSteamID64()}/${appID}/${contextID}`,
         headers: {
           'X-API-KEY': apiKey,
-          'Accept-encoding': 'gzip',
+          'Accept-Encoding': 'gzip, deflate, br',
         },
         qs: {
           l: language,
