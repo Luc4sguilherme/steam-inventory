@@ -689,7 +689,7 @@ SteamInventory.prototype.getUserInventoryExpressLoad = function (
         uri: `https://api.express-load.com/inventory/${userID.getSteamID64()}/${appID}/${contextID}`,
         headers: {
           'X-API-KEY': apiKey,
-          'Accept-Encoding': 'gzip, deflate, br',
+          'Accept-Encoding': 'gzip, deflate',
         },
         qs: {
           l: language,
@@ -839,6 +839,9 @@ SteamInventory.prototype.getUserInventorySteamBotInfo = function (
     self.httpRequest(
       {
         uri: `https://api.steambot.info/v1/${apiKey}/inventory/${userID.getSteamID64()}/${appID}/${contextID}`,
+        headers: {
+          'Accept-Encoding': 'gzip, deflate',
+        },
         qs: {
           l: language,
           count: 2500,
