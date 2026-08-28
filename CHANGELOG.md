@@ -1,3 +1,10 @@
+## [1.7.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.7.0...v1.7.1) (2026-08-28)
+
+
+### Bug Fixes
+
+* fix the accept-encoding header ([eb72828](https://github.com/Luc4sguilherme/steam-inventory/commit/eb72828bf1a87fe288d419038e9cb3c36eafffd7))
+
 # [1.7.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.6.1...v1.7.0) (2026-07-10)
 
 
