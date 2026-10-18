@@ -959,3 +959,177 @@ SteamInventory.prototype.getUserInventorySteamBotInfo = function (
     return quickDescriptionLookup[key];
   }
 };
+
+/**
+ * Get the contents of a user's inventory context.
+ * @param {string} apiKey - The SteamTradeX api service apikey
+ * @param {SteamID|string} userID - The user's SteamID as a SteamID object or a string which can parse into one
+ * @param {int} appID - The Steam application ID of the game for which you want an inventory
+ * @param {int} contextID - The ID of the "context" within the game you want to retrieve
+ * @param {boolean} tradableOnly - true to get only tradable items and currencies
+ * @param {string} [language] - The language of item descriptions to return. Omit for default (which may either be English or your account's chosen language)
+ * @param {function} callback
+ */
+SteamInventory.prototype.getUserInventorySteamTradeX = function (
+  apiKey,
+  userID,
+  appID,
+  contextID,
+  tradableOnly,
+  language,
+  callback,
+) {
+  if (typeof language === 'function') {
+    callback = language;
+    language = 'english';
+  }
+
+  if (!userID) {
+    callback(new Error("The user's SteamID is invalid or missing."));
+    return;
+  }
+
+  if (!apiKey) {
+    callback(new Error('The SteamTradeX apiKey is missing.'));
+    return;
+  }
+
+  var self = this;
+
+  if (typeof userID === 'string') {
+    userID = new SteamID(userID);
+  }
+
+  var pos = 1;
+  get([], []);
+
+  function get(inventory, currency, start, retries = 5) {
+    self.httpRequest(
+      {
+        uri: `https://steamtradex.com/api/inventory/${userID.getSteamID64()}/${appID}/${contextID}`,
+        headers: {
+          'X-API-KEY': apiKey,
+          'Accept-Encoding': 'gzip',
+        },
+        qs: {
+          l: language,
+          count: 2000,
+          start_assetid: start,
+        },
+        json: true,
+      },
+      function (err, response, body) {
+        if (err) {
+          if (response && response.statusCode >= 500 && retries > 0) {
+            get(inventory, currency, start, retries - 1);
+            return;
+          }
+
+          if (err.message == 'HTTP error 403') {
+            if (
+              response.body &&
+              response.body.message.includes('inventory is private')
+            ) {
+              callback(new Error('This profile is private'));
+              return;
+            }
+          }
+
+          if (err.message == 'HTTP error 402') {
+            if (
+              response.body &&
+              response.body.error.includes('You have no requests left')
+            ) {
+              callback(
+                new Error(
+                  'You do not have credits for inventory requests on SteamTradeX',
+                ),
+              );
+              return;
+            }
+          }
+
+          if (err.message == 'HTTP error 401') {
+            if (
+              response.body &&
+              response.body.error.includes('API key is not valid')
+            ) {
+              callback(new Error('Invalid SteamTradeX API key'));
+              return;
+            }
+          }
+
+          if (response.body && response.body.error) {
+            callback(new Error(response.body.error));
+            return;
+          }
+
+          callback(err);
+          return;
+        }
+
+        if (body && body.success && body.total_inventory_count === 0) {
+          callback(null, [], [], 0);
+          return;
+        }
+
+        if (body && body.success && !body.assets && appID == 730) {
+          callback(null, [], [], body.total_inventory_count);
+          return;
+        }
+
+        if (!body || !body.success || !body.assets || !body.descriptions) {
+          if (body) {
+            callback(
+              new Error(body.error || body.Error || 'Malformed response'),
+            );
+          } else {
+            callback(new Error('Malformed response'));
+          }
+
+          return;
+        }
+
+        for (var i = 0; i < body.assets.length; i++) {
+          var description = getDescription(
+            body.descriptions,
+            body.assets[i].classid,
+            body.assets[i].instanceid,
+          );
+
+          if (!tradableOnly || (description && description.tradable)) {
+            body.assets[i].pos = pos++;
+            (body.assets[i].currencyid ? currency : inventory).push(
+              new CEconItem(body.assets[i], description, contextID),
+            );
+          }
+        }
+
+        if (body.more_items && body.last_assetid) {
+          get(inventory, currency, body.last_assetid);
+        } else {
+          callback(null, inventory, currency, body.total_inventory_count);
+        }
+      },
+      'steamcommunity',
+    );
+  }
+
+  var quickDescriptionLookup = {};
+
+  function getDescription(descriptions, classID, instanceID) {
+    var key = classID + '_' + (instanceID || '0');
+
+    if (quickDescriptionLookup[key]) {
+      return quickDescriptionLookup[key];
+    }
+
+    for (var i = 0; i < descriptions.length; i++) {
+      quickDescriptionLookup[
+        descriptions[i].classid + '_' + (descriptions[i].instanceid || '0')
+      ] = descriptions[i];
+    }
+
+    return quickDescriptionLookup[key];
+  }
+};
