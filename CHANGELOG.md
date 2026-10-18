@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.7.1...v1.8.0) (2026-10-18)
+
+
+### Features
+
+* add support for steamtradex service ([9045251](https://github.com/Luc4sguilherme/steam-inventory/commit/9045251b1ccaeba08f589987117772eb28ea533a))
+
 ## [1.7.1](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.7.0...v1.7.1) (2026-08-28)
 
 
