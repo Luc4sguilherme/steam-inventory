@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.8.0...v1.9.0) (2026-11-11)
+
+
+### Features
+
+* add support for steamlevelhub service ([c42b240](https://github.com/Luc4sguilherme/steam-inventory/commit/c42b2409ae7370c4f9a0d58586eddec6798b670a))
+
 # [1.8.0](https://github.com/Luc4sguilherme/steam-inventory/compare/v1.7.1...v1.8.0) (2026-10-18)
 
 
